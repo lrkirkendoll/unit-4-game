@@ -4,30 +4,38 @@ var Wins = 0;
 var Losses = 0;
 var runningTotal = 0;
 
-randomNumber = Math.floor(Math.random() * 101 ) + 19;
-console.log (randomNumber);
+var resetStart = function () {
 
-$("#random").html("Target Number: " + randomNumber);
+    $(".crystals").empty();
+
+    randomNumber = Math.floor(Math.random() * 101 ) + 19;
+    console.log (randomNumber);
+
+    $("#random").html("Target Number: " + randomNumber);
 
 
 
-// Four crystals with hidden, randomized values between 1 - 12 //
-for (var i = 0; i < 4; i++) {
+    // Four crystals with hidden, randomized values between 1 - 12 //
+    for (var i = 0; i < 4; i++) {
     
-    var random = Math.floor(Math.random() * 12) + 1;
-    console.log(random);
+        var random = Math.floor(Math.random() * 12) + 1;
+        console.log(random);
 
-    var crystal = $("<div>");
-        crystal.attr({
-            "class": 'crystal',
-            "data-random": random
-        });
+        var crystal = $("<div>");
+            crystal.attr({
+                "class": 'crystal',
+                "data-random": random
+            });
 
-    $(".crystals").append(crystal);
+        $(".crystals").append(crystal);
 
+    }
 }
+
+resetStart ();
+
 // When the crystal is click the value of the crystal will be added to the player's score //
-$(".crystal").on('click', function () {
+$(document).on('click',".crystal", function () {
     
     var number = parseInt($(this).attr('data-random'));
 
@@ -36,10 +44,24 @@ $(".crystal").on('click', function () {
     console.log(runningTotal)
 
     if(runningTotal > randomNumber) {
-        console.log("You lost!");
+        Losses--;
+
+        $("#losses").html(Losses);
+
+        previous = 0;
+
+        resetStart();
+
     }
     else if (runningTotal===randomNumber){
-        console.log("You won!!!");
+        Wins++;
+
+        $("#wins").html(Wins);
+
+        previous = 0;
+
+        resetStart();
+
     }
     
 
