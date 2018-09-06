@@ -1,5 +1,23 @@
-// Random number generated at the beginning of the game //
+// Random number generated at the beginning of the game 19 - 120//
+var randomNumber;
+
+
+
 // Four crystals with hidden, randomized values between 1 - 12 //
+for (var i = 0; i < 4; i++) {
+    
+    var random = Math.floor(Math.random() * 12) + 1;
+    console.log(random);
+
+    var crystal = $("<div>");
+        crystal.attr({
+            "class": 'crystal',
+            "data-random": random
+        });
+
+    $(".crystals").append(crystal);
+
+}
 // When the crystal is click the value of the crystal will be added to the player's score //
 // The game will continue until the following conditions are met://
 // If the player's score is equal to the random number generated, then the "Wins" counter increases by 1//

@@ -1,0 +1,28 @@
+h1 {
+    background-color: darkorange;
+    color: white;
+    width: 300px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+}
+
+#directions {
+    background-color: lightgrey;
+    color: green;
+    width: 50%;
+    text-decoration: bold;
+}
+
+.crystals{
+    display: -webkit-inline-flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+}
+.crystal{
+    border: 1px solid black;
+    height:100px;
+    width: 100px;
+}
